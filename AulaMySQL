@@ -1,0 +1,71 @@
+CREATE TABLE funcionarios (id int, nome varchar(255), setor varchar(255), cargo varchar(255), salario decimal);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (1, 'Rodolfo', 3, 'Professor', 1200);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (2, 'Cleide Campos', 1, 'Secretária', 1000);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (3, 'Andreia Batista', 6, 'Programadora', 1500);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (4, 'Cristiano Souza', 6, 'Programador', 1500);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (5, 'Mario Souza', 4, 'Analista', 2200);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (7, 'Ana Silva', 4, 'Secretária', 1000);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (8, 'Silvia Soares', 5, 'Supervisora', 1650);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (9, 'José da Silva', 1, 'Programador', 1500);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (10, 'Manoel Batista', 1, 'Projetista', 2500);
+INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (11, 'João Silva', 4, 'Supervisor', 1650);
+
+-- a) Listagem completa
+SELECT * FROM funcionarios;
+
+-- b) Listagem com os nomes e cargos de todos os registros
+SELECT nome, cargo FROM funcionarios;
+
+-- c) Listagem dos nomes dos empregados do setor 1
+SELECT id, nome, setor FROM funcionarios WHERE setor = 1;
+
+-- d)
+SELECT id, nome, salario FROM funcionarios ORDER BY nome;
+
+-- e)
+SELECT id, nome, salario FROM funcionarios ORDER BY nome DESC;
+
+-- f)
+SELECT id, nome, setor FROM funcionarios ORDER BY setor, nome DESC;
+
+-- g)
+SELECT id, nome, setor FROM funcionarios WHERE setor = 4 ORDER BY nome;
+
+-- h)
+SELECT * FROM funcionarios WHERE salario > 1700 and salario < 2000;
+
+-- i)
+SELECT * FROM funcionarios WHERE nome LIKE 'A%';
+
+-- j)
+SELECT * FROM funcionarios WHERE nome LIKE '_A%';
+
+-- k)
+SELECT * FROM funcionarios WHERE nome LIKE '%AN%';
+
+-- l)
+SELECT AVG(salario) AS Média FROM funcionarios;
+
+-- m)
+SELECT AVG(salario) AS Média FROM funcionarios WHERE setor = 3;
+
+-- n)
+SELECT SUM(salario) AS Soma FROM funcionarios;
+
+-- o)
+SELECT SUM(salario) AS Soma FROM funcionarios WHERE setor = 5;
+
+-- p)
+SELECT MAX(salario) AS Maior FROM funcionarios;
+
+-- q)
+SELECT MIN(salario) AS Menor FROM funcionarios;
+
+-- r)
+SELECT COUNT(*) FROM funcionarios WHERE setor = 3;
+
+-- s)
+SELECT COUNT(*) FROM funcionarios WHERE salario > 2000;
+
+-- t)
+SELECT COUNT(DISTINCT setor) FROM funcionarios;
