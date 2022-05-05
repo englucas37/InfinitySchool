@@ -10,62 +10,62 @@ INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (9, 'José da 
 INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (10, 'Manoel Batista', 1, 'Projetista', 2500);
 INSERT INTO funcionarios (id, nome, setor, cargo, salario) VALUES (11, 'João Silva', 4, 'Supervisor', 1650);
 
--- a) Listagem completa
+-- a) Apresentar a listagem completa dos registros da tabela Empregados
 SELECT * FROM funcionarios;
 
--- b) Listagem com os nomes e cargos de todos os registros
+-- b) Apresentar uma listagem dos nomes e dos cargos de todos os registros da tabela Empregados
 SELECT nome, cargo FROM funcionarios;
 
--- c) Listagem dos nomes dos empregados do setor 1
+-- c) Apresentar uma listagem dos nomes dos empregados do setor 1
 SELECT id, nome, setor FROM funcionarios WHERE setor = 1;
 
--- d)
+-- d) Listagem dos nomes e dos salários por ordem de nome (a-z)
 SELECT id, nome, salario FROM funcionarios ORDER BY nome;
 
--- e)
+-- e) Listagem dos nomes e dos salários por ordem de nome em formato descendente (z-a)
 SELECT id, nome, salario FROM funcionarios ORDER BY nome DESC;
 
--- f)
+-- f) Listagem dos setores e nomes colocados por ordem do campo setor em formato ascendente e do campo nome em formato descendente
 SELECT id, nome, setor FROM funcionarios ORDER BY setor, nome DESC;
 
--- g)
+-- g) Listagem de nomes ordenados pelo campo nome, em formato ascendente, dos empregados do setor 4
 SELECT id, nome, setor FROM funcionarios WHERE setor = 4 ORDER BY nome;
 
--- h)
+-- h) Listar empregados com salário entre 1700.00 e 2000.00
 SELECT * FROM funcionarios WHERE salario > 1700 and salario < 2000;
 
--- i)
+-- i) Listar empregados cujo nome comece com a letra A
 SELECT * FROM funcionarios WHERE nome LIKE 'A%';
 
--- j)
+-- j) Listar empregados cujo nome tem a segunda letra A
 SELECT * FROM funcionarios WHERE nome LIKE '_A%';
 
--- k)
+-- k) Listar empregados que tem a sequência AN em qualquer posição do nome
 SELECT * FROM funcionarios WHERE nome LIKE '%AN%';
 
--- l)
+-- l) Média aritmética dos salários de todos os empregados
 SELECT AVG(salario) AS Média FROM funcionarios;
 
--- m)
+-- m) Média aritmética dos salários de todos os empregados do setor 3
 SELECT AVG(salario) AS Média FROM funcionarios WHERE setor = 3;
 
--- n)
+-- n) Soma dos salários de todos os empregados
 SELECT SUM(salario) AS Soma FROM funcionarios;
 
--- o)
+-- o) Soma dos salários de todos os empregados do setor 5
 SELECT SUM(salario) AS Soma FROM funcionarios WHERE setor = 5;
 
--- p)
+-- p) Maior salário existente entre todos os empregados
 SELECT MAX(salario) AS Maior FROM funcionarios;
 
--- q)
+-- q) Menor salário existente entre todos os empregados
 SELECT MIN(salario) AS Menor FROM funcionarios;
 
--- r)
+-- r) Número de empregados do setor 3
 SELECT COUNT(*) FROM funcionarios WHERE setor = 3;
 
--- s)
+-- s) Número de empregados que ganham mais que 2000.00
 SELECT COUNT(*) FROM funcionarios WHERE salario > 2000;
 
--- t)
+-- t) Número de setores existentes no cadastro de empregados
 SELECT COUNT(DISTINCT setor) FROM funcionarios;
