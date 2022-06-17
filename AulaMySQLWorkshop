@@ -1,0 +1,68 @@
+DROP DATABASE escola;
+
+CREATE DATABASE escola;
+
+USE escola;
+
+-- Sintaxe para criação de colunas:
+-- 1. Nome da coluna
+-- 2. Tipo de dado da coluna
+-- 3. Propriedades (opcional)
+
+-- Primary key: propriedade que não permite que o mesmo dado seja repetido para outras linhas
+-- Not null: não permite dados nulos
+
+CREATE TABLE alunos(
+	matricula INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(35) NOT NULL,
+    curso VARCHAR(15),
+    nota FLOAT(3,1)
+);
+
+CREATE TABLE professores(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(35) NOT NULL,
+    salario FLOAT(7,2)
+);
+
+ALTER TABLE alunos ADD COLUMN idade INT;
+ALTER TABLE alunos ADD COLUMN nome_mae VARCHAR(35);
+ALTER TABLE alunos DROP COLUMN nome_mae;
+ALTER TABLE alunos MODIFY COLUMN nome VARCHAR(50) NOT NULL;
+
+CREATE DATABASE mercado;
+
+USE mercado;
+
+CREATE TABLE produtos(
+	codigo_produto INT PRIMARY KEY AUTO_INCREMENT,
+    nome_produto VARCHAR(35) NOT NULL,
+    categoria_produto VARCHAR(20),
+    preco_produto FLOAT (7,2)
+);
+
+USE escola;
+
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Leandro','Design',7.9,21);
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Maria','Python',8.2,19);
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Roberto','Fotografia',6.0,31);
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Manoela','Fotografia',5.4,16);
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Charles','Python',7.1,22);
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Fernanda','Metaverso',9.3,26);
+SELECT * FROM alunos;
+
+UPDATE alunos SET nome = 'Leandro Soares', nota = 8.0 WHERE matricula = 1;
+UPDATE alunos SET curso = 'Python' WHERE matricula = 5;
+UPDATE alunos SET nota = 6.0 WHERE nota <= 6.0;
+
+DELETE FROM alunos WHERE matricula = 5;
+DELETE FROM alunos WHERE curso = 'Design';
+DELETE FROM alunos WHERE idade >= 25;
+
+INSERT INTO alunos (nome, curso, nota, idade) VALUES ('Molina', 'Python', 8.0, 22), ('Francisca', 'Fotografia', 6.0, 24), ('Ricardo', 'Design', 7.5, 17), ('Rita', 'Metaverso', 6.7, 22);
+
+SELECT * FROM alunos WHERE curso = 'Design';
+SELECT * FROM alunos WHERE curso = 'Fotografia';
+SELECT * FROM alunos WHERE idade < 18;
+SELECT * FROM alunos WHERE nota > 8.0;
+SELECT * FROM alunos WHERE matricula = 20;
